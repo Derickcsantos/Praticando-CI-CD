@@ -1,375 +1,559 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#0ea5a4" />
-  <title>English Campos — Escola de Inglês</title>
-  <meta name="description" content="English Campos: aulas de inglês para todas as idades. Professores qualificados, método comunicativo e cronogramas flexíveis. Aprenda com confiança." />
-  <link rel="canonical" href="https://example.com/" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0ea5a4" />
+    <title>English Campos — Escola de Inglês</title>
+    <meta
+      name="description"
+      content="English Campos: aulas de inglês para todas as idades. Professores qualificados, método comunicativo e cronogramas flexíveis. Aprenda com confiança."
+    />
+    <link rel="canonical" href="https://example.com/" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="English Campos — Escola de Inglês" />
-  <meta property="og:description" content="Aulas de inglês para crianças, adolescentes, adultos e terceira idade. Método comunicativo e suporte contínuo." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://example.com/" />
-  <meta property="og:image" content="https://example.com/og-image.png" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="English Campos — Escola de Inglês" />
+    <meta
+      property="og:description"
+      content="Aulas de inglês para crianças, adolescentes, adultos e terceira idade. Método comunicativo e suporte contínuo."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://example.com/" />
+    <meta property="og:image" content="https://example.com/og-image.png" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Structured data (Organization) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "School",
-    "name": "English Campos",
-    "url": "https://example.com/",
-    "description": "English Campos oferece cursos de inglês para todas as idades com professores qualificados e metodologia comunicativa.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Av. Exemplo, 123",
-      "addressLocality": "Cidade",
-      "addressRegion": "Estado",
-      "postalCode": "00000-000",
-      "addressCountry": "BR"
-    },
-    "telephone": "+55-11-91234-5678"
-  }
-  </script>
+    <!-- Structured data (Organization) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "School",
+        "name": "English Campos",
+        "url": "https://example.com/",
+        "description": "English Campos oferece cursos de inglês para todas as idades com professores qualificados e metodologia comunicativa.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. Exemplo, 123",
+          "addressLocality": "Cidade",
+          "addressRegion": "Estado",
+          "postalCode": "00000-000",
+          "addressCountry": "BR"
+        },
+        "telephone": "+55-11-91234-5678"
+      }
+    </script>
 
-  <!-- Tailwind Play CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Minimal CSS tweaks (optional) -->
-  <style>
-    :root {
-      --brand: #0ea5a4; /* teal-400 */
-    }
-    .focus-ring:focus {
-      outline: 3px solid rgba(14,165,164,0.18);
-      outline-offset: 2px;
-    }
-  </style>
-</head>
-<body class="bg-slate-50 text-slate-800 antialiased">
-  <!-- Top nav -->
-  <header class="bg-white shadow-sm sticky top-0 z-30">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <nav class="flex items-center justify-between h-16">
-        <div class="flex items-center gap-4">
-          <a href="#" class="flex items-center gap-3">
-            <span class="inline-block w-10 h-10 rounded-md bg-gradient-to-br from-emerald-400 to-teal-500 shadow-lg flex items-center justify-center text-white font-bold">EC</span>
-            <span class="sr-only">English Campos</span>
-            <span class="hidden sm:inline-block font-semibold text-lg">English Campos</span>
-          </a>
-        </div>
-
-        <div class="flex items-center gap-3">
-          <button id="langToggle" aria-label="Alternar idioma" class="focus-ring inline-flex items-center gap-2 px-3 py-1.5 rounded-md text-sm border border-slate-200 bg-white hover:bg-slate-50">
-            <svg id="langIcon" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m0 12v6m6-18v2m0 12v6M3 19h12" />
-            </svg>
-            <span id="langLabel">Português</span>
-          </button>
-
-          <a href="#contact" class="ml-2 inline-block rounded-md bg-emerald-400 px-4 py-2 text-white font-medium hover:brightness-95 focus-ring">Fale Conosco</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <main>
-    <section class="bg-white">
-      <div class="max-w-6xl mx-auto px-6 py-12 lg:py-20 grid gap-10 lg:grid-cols-2 items-center">
-        <div>
-          <h1 id="heroTitle" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
-            Aprenda inglês com confiança — em qualquer idade
-          </h1>
-          <p id="heroSubtitle" class="mt-4 text-lg text-slate-600">
-            Na <strong>English Campos</strong> oferecemos aulas personalizadas para crianças, adolescentes, adultos e idosos. Metodologia prática, professores qualificados e flexibilidade de horários.
-          </p>
-
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#benefits" class="inline-flex items-center gap-2 rounded-md bg-emerald-400 px-5 py-3 text-white font-semibold hover:brightness-95 focus-ring">
-              Ver benefícios
-            </a>
-            <a href="#contact" class="inline-flex items-center gap-2 rounded-md border px-5 py-3 bg-white hover:bg-slate-50 focus-ring">
-              Agende uma aula grátis
+    <!-- Minimal CSS tweaks (optional) -->
+    <style>
+      :root {
+        --brand: #0ea5a4; /* teal-400 */
+      }
+      .focus-ring:focus {
+        outline: 3px solid rgba(14, 165, 164, 0.18);
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-800 antialiased">
+    <!-- Top nav -->
+    <header class="bg-white shadow-sm sticky top-0 z-30">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <nav class="flex items-center justify-between h-16">
+          <div class="flex items-center gap-4">
+            <a href="#" class="flex items-center gap-3">
+              <span
+                class="inline-block w-10 h-10 rounded-md bg-gradient-to-br from-emerald-400 to-teal-500 shadow-lg flex items-center justify-center text-white font-bold"
+                >EC</span
+              >
+              <span class="sr-only">English Campos</span>
+              <span class="hidden sm:inline-block font-semibold text-lg"
+                >English Campos</span
+              >
             </a>
           </div>
 
-          <div class="mt-6 text-sm text-slate-500">
-            <span class="inline-flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m2 0a8 8 0 11-16 0 8 8 0 0116 0z" />
+          <div class="flex items-center gap-3">
+            <button
+              id="langToggle"
+              aria-label="Alternar idioma"
+              class="focus-ring inline-flex items-center gap-2 px-3 py-1.5 rounded-md text-sm border border-slate-200 bg-white hover:bg-slate-50"
+            >
+              <svg
+                id="langIcon"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 5h12M9 3v2m0 12v6m6-18v2m0 12v6M3 19h12"
+                />
               </svg>
-              Método comunicativo • Aulas presenciais e online
-            </span>
+              <span id="langLabel">Português</span>
+            </button>
+
+            <a
+              href="#contact"
+              class="ml-2 inline-block rounded-md bg-emerald-400 px-4 py-2 text-white font-medium hover:brightness-95 focus-ring"
+              >Fale Conosco</a
+            >
           </div>
-        </div>
+        </nav>
+      </div>
+    </header>
 
-        <div class="order-first lg:order-last">
-          <div class="w-full rounded-lg overflow-hidden shadow-lg">
-            <!-- Decorative image / hero illustration -->
-            <picture>
-              <source srcset="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1200&q=80&auto=format&fit=crop" media="(min-width:1024px)">
-              <img alt="Aulas de inglês - professores e alunos" src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=900&q=80&auto=format&fit=crop" class="w-full h-64 sm:h-72 lg:h-80 object-cover">
-            </picture>
+    <!-- Hero -->
+    <main>
+      <section class="bg-white">
+        <div
+          class="max-w-6xl mx-auto px-6 py-12 lg:py-20 grid gap-10 lg:grid-cols-2 items-center"
+        >
+          <div>
+            <h1
+              id="heroTitle"
+              class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight"
+            >
+              Aprenda inglês com confiança — em qualquer idade
+            </h1>
+            <p id="heroSubtitle" class="mt-4 text-lg text-slate-600">
+              Na <strong>English Campos</strong> oferecemos aulas personalizadas
+              para crianças, adolescentes, adultos e idosos. Metodologia
+              prática, professores qualificados e flexibilidade de horários.
+            </p>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a
+                href="#benefits"
+                class="inline-flex items-center gap-2 rounded-md bg-emerald-400 px-5 py-3 text-white font-semibold hover:brightness-95 focus-ring"
+              >
+                Ver benefícios
+              </a>
+              <a
+                href="#contact"
+                class="inline-flex items-center gap-2 rounded-md border px-5 py-3 bg-white hover:bg-slate-50 focus-ring"
+              >
+                Agende uma aula grátis
+              </a>
+            </div>
+
+            <div class="mt-6 text-sm text-slate-500">
+              <span class="inline-flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-emerald-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12h6m2 0a8 8 0 11-16 0 8 8 0 0116 0z"
+                  />
+                </svg>
+                Método comunicativo • Aulas presenciais e online
+              </span>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Benefits -->
-    <section id="benefits" class="max-w-6xl mx-auto px-6 py-12">
-      <div class="rounded-lg bg-gradient-to-r from-white to-slate-50 p-8 shadow-sm">
-        <h2 id="benefitsTitle" class="text-2xl font-bold">Benefícios de estudar inglês em todas as idades</h2>
-        <p class="mt-2 text-slate-600">O inglês abre portas — e a forma como você aprende pode transformar sua experiência. Veja os ganhos por etapa da vida:</p>
-
-        <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <!-- Children -->
-          <article class="bg-white p-4 rounded-lg border">
-            <h3 class="font-semibold">Crianças (4–12)</h3>
-            <p class="mt-2 text-sm text-slate-600">Aprendizado natural através de jogos, músicas e atividades lúdicas. Desenvolve pronúncia e confiança desde cedo.</p>
-            <ul class="mt-3 text-sm space-y-1 text-slate-500">
-              <li>Melhora cognição</li>
-              <li>Aprendizagem divertida</li>
-              <li>Habilidades de comunicação</li>
-            </ul>
-          </article>
-
-          <!-- Teens -->
-          <article class="bg-white p-4 rounded-lg border">
-            <h3 class="font-semibold">Adolescentes (13–17)</h3>
-            <p class="mt-2 text-sm text-slate-600">Foco em conversação, preparação para intercâmbio e exames escolares. Aumenta oportunidades acadêmicas.</p>
-            <ul class="mt-3 text-sm space-y-1 text-slate-500">
-              <li>Preparação para exames</li>
-              <li>Intercâmbio e estudos</li>
-              <li>Habilidades sociais</li>
-            </ul>
-          </article>
-
-          <!-- Adults -->
-          <article class="bg-white p-4 rounded-lg border">
-            <h3 class="font-semibold">Adultos (18–59)</h3>
-            <p class="mt-2 text-sm text-slate-600">Melhora a empregabilidade, permite acompanhar tendências globais e facilita viagens. Aulas adaptadas à rotina.</p>
-            <ul class="mt-3 text-sm space-y-1 text-slate-500">
-              <li>Oportunidades de trabalho</li>
-              <li>Networking internacional</li>
-              <li>Flexibilidade de horários</li>
-            </ul>
-          </article>
-
-          <!-- Seniors -->
-          <article class="bg-white p-4 rounded-lg border">
-            <h3 class="font-semibold">Terceira idade (60+)</h3>
-            <p class="mt-2 text-sm text-slate-600">Aprender mantém a mente ativa, estimula memória e oferece novas formas de socialização e lazer.</p>
-            <ul class="mt-3 text-sm space-y-1 text-slate-500">
-              <li>Exercício mental</li>
-              <li>Atividades sociais</li>
-              <li>Novos hobbies e viagens</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Features / Why choose us -->
-    <section class="bg-white border-t">
-      <div class="max-w-6xl mx-auto px-6 py-12 grid gap-8 lg:grid-cols-2 items-center">
-        <div>
-          <h2 class="text-2xl font-bold">Por que escolher a English Campos?</h2>
-          <p class="mt-3 text-slate-600">Metodologia personalizada, turmas pequenas e foco em comunicação real. Apoiamos seu progresso com avaliações regulares e conteúdos relevantes.</p>
-
-          <ul class="mt-6 space-y-4">
-            <li class="flex gap-3 items-start">
-              <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-emerald-100 text-emerald-600 font-semibold">1</span>
-              <div>
-                <strong class="block">Professores qualificados</strong>
-                <p class="text-sm text-slate-500">Formação certificada e experiência prática em ensino de inglês.</p>
-              </div>
-            </li>
-
-            <li class="flex gap-3 items-start">
-              <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-emerald-100 text-emerald-600 font-semibold">2</span>
-              <div>
-                <strong class="block">Aulas personalizadas</strong>
-                <p class="text-sm text-slate-500">Conteúdo adaptado ao nível e objetivo do aluno.</p>
-              </div>
-            </li>
-
-            <li class="flex gap-3 items-start">
-              <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-emerald-100 text-emerald-600 font-semibold">3</span>
-              <div>
-                <strong class="block">Ambiente acolhedor</strong>
-                <p class="text-sm text-slate-500">Turmas pequenas e suporte contínuo.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="bg-slate-50 p-6 rounded-lg border">
-            <h3 class="font-semibold">O que oferecemos</h3>
-            <ul class="mt-4 text-sm text-slate-600 space-y-2">
-              <li>• Aulas presenciais e online</li>
-              <li>• Cursos intensivos e regulares</li>
-              <li>• Preparação para exames e entrevistas</li>
-              <li>• Atividades extras: clubes de conversação e eventos culturais</li>
-            </ul>
-
-            <div class="mt-6">
-              <a href="#contact" class="inline-block rounded-md bg-emerald-400 px-4 py-2 text-white font-medium hover:brightness-95 focus-ring">Agende sua aula grátis</a>
+          <div class="order-first lg:order-last">
+            <div class="w-full rounded-lg overflow-hidden shadow-lg">
+              <!-- Decorative image / hero illustration -->
+              <picture>
+                <source
+                  srcset="
+                    https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1200&q=80&auto=format&fit=crop
+                  "
+                  media="(min-width:1024px)"
+                />
+                <img
+                  alt="Aulas de inglês - professores e alunos"
+                  src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=900&q=80&auto=format&fit=crop"
+                  class="w-full h-64 sm:h-72 lg:h-80 object-cover"
+                />
+              </picture>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Testimonials -->
-    <section class="max-w-6xl mx-auto px-6 py-12">
-      <h2 class="text-2xl font-bold">O que nossos alunos dizem</h2>
-      <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <blockquote class="bg-white p-4 rounded-lg border">
-          <p class="text-sm text-slate-600">"Melhorei muito minha fluência em apenas 6 meses. Professores fantásticos!"</p>
-          <footer class="mt-3 text-xs text-slate-500">— Mariana, 28</footer>
-        </blockquote>
+      <!-- Benefits -->
+      <section id="benefits" class="max-w-6xl mx-auto px-6 py-12">
+        <div
+          class="rounded-lg bg-gradient-to-r from-white to-slate-50 p-8 shadow-sm"
+        >
+          <h2 id="benefitsTitle" class="text-2xl font-bold">
+            Benefícios de estudar inglês em todas as idades
+          </h2>
+          <p class="mt-2 text-slate-600">
+            O inglês abre portas — e a forma como você aprende pode transformar
+            sua experiência. Veja os ganhos por etapa da vida:
+          </p>
 
-        <blockquote class="bg-white p-4 rounded-lg border">
-          <p class="text-sm text-slate-600">"Minha filha ama as aulas. A metodologia é divertida e eficaz."</p>
-          <footer class="mt-3 text-xs text-slate-500">— Roberto, 42</footer>
-        </blockquote>
+          <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <!-- Children -->
+            <article class="bg-white p-4 rounded-lg border">
+              <h3 class="font-semibold">Crianças (4–12)</h3>
+              <p class="mt-2 text-sm text-slate-600">
+                Aprendizado natural através de jogos, músicas e atividades
+                lúdicas. Desenvolve pronúncia e confiança desde cedo.
+              </p>
+              <ul class="mt-3 text-sm space-y-1 text-slate-500">
+                <li>Melhora cognição</li>
+                <li>Aprendizagem divertida</li>
+                <li>Habilidades de comunicação</li>
+              </ul>
+            </article>
 
-        <blockquote class="bg-white p-4 rounded-lg border">
-          <p class="text-sm text-slate-600">"Aulas para a terceira idade com foco em conversação. Muito recomendado."</p>
-          <footer class="mt-3 text-xs text-slate-500">— Dona Lúcia, 67</footer>
-        </blockquote>
-      </div>
-    </section>
+            <!-- Teens -->
+            <article class="bg-white p-4 rounded-lg border">
+              <h3 class="font-semibold">Adolescentes (13–17)</h3>
+              <p class="mt-2 text-sm text-slate-600">
+                Foco em conversação, preparação para intercâmbio e exames
+                escolares. Aumenta oportunidades acadêmicas.
+              </p>
+              <ul class="mt-3 text-sm space-y-1 text-slate-500">
+                <li>Preparação para exames</li>
+                <li>Intercâmbio e estudos</li>
+                <li>Habilidades sociais</li>
+              </ul>
+            </article>
 
-    <!-- FAQ -->
-    <section class="bg-white border-t">
-      <div class="max-w-6xl mx-auto px-6 py-12">
-        <h2 class="text-2xl font-bold">Perguntas frequentes</h2>
-        <dl class="mt-6 space-y-4">
-          <div>
-            <dt class="font-semibold">Qual é a duração das aulas?</dt>
-            <dd class="mt-1 text-sm text-slate-600">Aulas de 45 ou 60 minutos — também oferecemos pacotes intensivos.</dd>
-          </div>
-          <div>
-            <dt class="font-semibold">Como funciona a aula experimental?</dt>
-            <dd class="mt-1 text-sm text-slate-600">Agende uma aula grátis para conhecer o método e o professor.</dd>
-          </div>
-          <div>
-            <dt class="font-semibold">Há turmas presenciais e online?</dt>
-            <dd class="mt-1 text-sm text-slate-600">Sim, oferecemos ambos os formatos para sua conveniência.</dd>
-          </div>
-        </dl>
-      </div>
-    </section>
+            <!-- Adults -->
+            <article class="bg-white p-4 rounded-lg border">
+              <h3 class="font-semibold">Adultos (18–59)</h3>
+              <p class="mt-2 text-sm text-slate-600">
+                Melhora a empregabilidade, permite acompanhar tendências globais
+                e facilita viagens. Aulas adaptadas à rotina.
+              </p>
+              <ul class="mt-3 text-sm space-y-1 text-slate-500">
+                <li>Oportunidades de trabalho</li>
+                <li>Networking internacional</li>
+                <li>Flexibilidade de horários</li>
+              </ul>
+            </article>
 
-    <!-- Contact -->
-    <section id="contact" class="max-w-6xl mx-auto px-6 py-12">
-      <div class="rounded-lg bg-white p-8 shadow-sm">
-        <h2 class="text-2xl font-bold">Fale com a English Campos</h2>
-        <p class="mt-2 text-slate-600">Preencha o formulário e nossa equipe entrará em contato para agendar sua aula experimental.</p>
-
-        <form class="mt-6 grid gap-4 sm:grid-cols-2" action="#" method="post" aria-label="Formulário de contato">
-          <div>
-            <label for="name" class="block text-sm font-medium text-slate-700">Nome</label>
-            <input id="name" name="name" type="text" required class="mt-1 block w-full rounded-md border px-3 py-2 bg-white text-slate-700 placeholder-slate-400 focus-ring" />
-          </div>
-
-          <div>
-            <label for="email" class="block text-sm font-medium text-slate-700">Email</label>
-            <input id="email" name="email" type="email" required class="mt-1 block w-full rounded-md border px-3 py-2 bg-white text-slate-700 placeholder-slate-400 focus-ring" />
-          </div>
-
-          <div class="sm:col-span-2">
-            <label for="message" class="block text-sm font-medium text-slate-700">Mensagem</label>
-            <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border px-3 py-2 bg-white text-slate-700 placeholder-slate-400 focus-ring"></textarea>
-          </div>
-
-          <div class="sm:col-span-2 flex items-center gap-4">
-            <button type="submit" class="inline-flex items-center gap-2 rounded-md bg-emerald-400 px-4 py-2 text-white font-medium hover:brightness-95 focus-ring">
-              Enviar mensagem
-            </button>
-            <p class="text-sm text-slate-500">Ou ligue: <strong>+55 11 91234-5678</strong></p>
-          </div>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-slate-800 text-slate-200 mt-12">
-    <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between gap-6 items-start">
-      <div>
-        <div class="flex items-center gap-3">
-          <span class="inline-block w-10 h-10 rounded-md bg-emerald-400 text-slate-900 flex items-center justify-center font-bold">EC</span>
-          <div>
-            <p class="font-semibold">English Campos</p>
-            <p class="text-sm text-slate-300">Aprendizado em qualquer fase da vida.</p>
+            <!-- Seniors -->
+            <article class="bg-white p-4 rounded-lg border">
+              <h3 class="font-semibold">Terceira idade (60+)</h3>
+              <p class="mt-2 text-sm text-slate-600">
+                Aprender mantém a mente ativa, estimula memória e oferece novas
+                formas de socialização e lazer.
+              </p>
+              <ul class="mt-3 text-sm space-y-1 text-slate-500">
+                <li>Exercício mental</li>
+                <li>Atividades sociais</li>
+                <li>Novos hobbies e viagens</li>
+              </ul>
+            </article>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="text-sm">
-        <p>© <span id="year"></span> English Campos. Todos os direitos reservados.</p>
-        <p class="mt-2">Endereço: Av. Exemplo, 123 — Cidade</p>
-      </div>
-    </div>
-  </footer>
+      <!-- Features / Why choose us -->
+      <section class="bg-white border-t">
+        <div
+          class="max-w-6xl mx-auto px-6 py-12 grid gap-8 lg:grid-cols-2 items-center"
+        >
+          <div>
+            <h2 class="text-2xl font-bold">
+              Por que escolher a English Campos?
+            </h2>
+            <p class="mt-3 text-slate-600">
+              Metodologia personalizada, turmas pequenas e foco em comunicação
+              real. Apoiamos seu progresso com avaliações regulares e conteúdos
+              relevantes.
+            </p>
 
-  <!-- Minimal JS for language toggle & small accessibility niceties -->
-  <script>
-    // Language toggle: Português <-> English (simple translations inline)
-    (function () {
-      const translations = {
-        'pt': {
-          langLabel: 'Português',
-          heroTitle: 'Aprenda inglês com confiança — em qualquer idade',
-          heroSubtitle: 'Na English Campos oferecemos aulas personalizadas para crianças, adolescentes, adultos e idosos. Metodologia prática, professores qualificados e flexibilidade de horários.',
-          benefitsTitle: 'Benefícios de estudar inglês em todas as idades',
-        },
-        'en': {
-          langLabel: 'English',
-          heroTitle: 'Learn English with confidence — at any age',
-          heroSubtitle: 'At English Campos we offer personalized classes for children, teens, adults and seniors. Practical methodology, qualified teachers and flexible schedules.',
-          benefitsTitle: 'Benefits of learning English at every age'
+            <ul class="mt-6 space-y-4">
+              <li class="flex gap-3 items-start">
+                <span
+                  class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-emerald-100 text-emerald-600 font-semibold"
+                  >1</span
+                >
+                <div>
+                  <strong class="block">Professores qualificados</strong>
+                  <p class="text-sm text-slate-500">
+                    Formação certificada e experiência prática em ensino de
+                    inglês.
+                  </p>
+                </div>
+              </li>
+
+              <li class="flex gap-3 items-start">
+                <span
+                  class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-emerald-100 text-emerald-600 font-semibold"
+                  >2</span
+                >
+                <div>
+                  <strong class="block">Aulas personalizadas</strong>
+                  <p class="text-sm text-slate-500">
+                    Conteúdo adaptado ao nível e objetivo do aluno.
+                  </p>
+                </div>
+              </li>
+
+              <li class="flex gap-3 items-start">
+                <span
+                  class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-emerald-100 text-emerald-600 font-semibold"
+                  >3</span
+                >
+                <div>
+                  <strong class="block">Ambiente acolhedor</strong>
+                  <p class="text-sm text-slate-500">
+                    Turmas pequenas e suporte contínuo.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="bg-slate-50 p-6 rounded-lg border">
+              <h3 class="font-semibold">O que oferecemos</h3>
+              <ul class="mt-4 text-sm text-slate-600 space-y-2">
+                <li>• Aulas presenciais e online</li>
+                <li>• Cursos intensivos e regulares</li>
+                <li>• Preparação para exames e entrevistas</li>
+                <li>
+                  • Atividades extras: clubes de conversação e eventos culturais
+                </li>
+              </ul>
+
+              <div class="mt-6">
+                <a
+                  href="#contact"
+                  class="inline-block rounded-md bg-emerald-400 px-4 py-2 text-white font-medium hover:brightness-95 focus-ring"
+                  >Agende sua aula grátis</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="max-w-6xl mx-auto px-6 py-12">
+        <h2 class="text-2xl font-bold">O que nossos alunos dizem</h2>
+        <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <blockquote class="bg-white p-4 rounded-lg border">
+            <p class="text-sm text-slate-600">
+              "Melhorei muito minha fluência em apenas 6 meses. Professores
+              fantásticos!"
+            </p>
+            <footer class="mt-3 text-xs text-slate-500">— Mariana, 28</footer>
+          </blockquote>
+
+          <blockquote class="bg-white p-4 rounded-lg border">
+            <p class="text-sm text-slate-600">
+              "Minha filha ama as aulas. A metodologia é divertida e eficaz."
+            </p>
+            <footer class="mt-3 text-xs text-slate-500">— Roberto, 42</footer>
+          </blockquote>
+
+          <blockquote class="bg-white p-4 rounded-lg border">
+            <p class="text-sm text-slate-600">
+              "Aulas para a terceira idade com foco em conversação. Muito
+              recomendado."
+            </p>
+            <footer class="mt-3 text-xs text-slate-500">
+              — Dona Lúcia, 67
+            </footer>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="bg-white border-t">
+        <div class="max-w-6xl mx-auto px-6 py-12">
+          <h2 class="text-2xl font-bold">Perguntas frequentes</h2>
+          <dl class="mt-6 space-y-4">
+            <div>
+              <dt class="font-semibold">Qual é a duração das aulas?</dt>
+              <dd class="mt-1 text-sm text-slate-600">
+                Aulas de 45 ou 60 minutos — também oferecemos pacotes
+                intensivos.
+              </dd>
+            </div>
+            <div>
+              <dt class="font-semibold">Como funciona a aula experimental?</dt>
+              <dd class="mt-1 text-sm text-slate-600">
+                Agende uma aula grátis para conhecer o método e o professor.
+              </dd>
+            </div>
+            <div>
+              <dt class="font-semibold">Há turmas presenciais e online?</dt>
+              <dd class="mt-1 text-sm text-slate-600">
+                Sim, oferecemos ambos os formatos para sua conveniência.
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="max-w-6xl mx-auto px-6 py-12">
+        <div class="rounded-lg bg-white p-8 shadow-sm">
+          <h2 class="text-2xl font-bold">Fale com a English Campos</h2>
+          <p class="mt-2 text-slate-600">
+            Preencha o formulário e nossa equipe entrará em contato para agendar
+            sua aula experimental.
+          </p>
+
+          <form
+            class="mt-6 grid gap-4 sm:grid-cols-2"
+            action="#"
+            method="post"
+            aria-label="Formulário de contato"
+          >
+            <div>
+              <label for="name" class="block text-sm font-medium text-slate-700"
+                >Nome</label
+              >
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                class="mt-1 block w-full rounded-md border px-3 py-2 bg-white text-slate-700 placeholder-slate-400 focus-ring"
+              />
+            </div>
+
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium text-slate-700"
+                >Email</label
+              >
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                class="mt-1 block w-full rounded-md border px-3 py-2 bg-white text-slate-700 placeholder-slate-400 focus-ring"
+              />
+            </div>
+
+            <div class="sm:col-span-2">
+              <label
+                for="message"
+                class="block text-sm font-medium text-slate-700"
+                >Mensagem</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                class="mt-1 block w-full rounded-md border px-3 py-2 bg-white text-slate-700 placeholder-slate-400 focus-ring"
+              ></textarea>
+            </div>
+
+            <div class="sm:col-span-2 flex items-center gap-4">
+              <button
+                type="submit"
+                class="inline-flex items-center gap-2 rounded-md bg-emerald-400 px-4 py-2 text-white font-medium hover:brightness-95 focus-ring"
+              >
+                Enviar mensagem
+              </button>
+              <p class="text-sm text-slate-500">
+                Ou ligue: <strong>+55 11 91234-5678</strong>
+              </p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-200 mt-12">
+      <div
+        class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between gap-6 items-start"
+      >
+        <div>
+          <div class="flex items-center gap-3">
+            <span
+              class="inline-block w-10 h-10 rounded-md bg-emerald-400 text-slate-900 flex items-center justify-center font-bold"
+              >EC</span
+            >
+            <div>
+              <p class="font-semibold">English Campos</p>
+              <p class="text-sm text-slate-300">
+                Aprendizado em qualquer fase da vida.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-sm">
+          <p>
+            © <span id="year"></span> English Campos. Todos os direitos
+            reservados.
+          </p>
+          <p class="mt-2">Endereço: Av. Exemplo, 123 — Cidade</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Minimal JS for language toggle & small accessibility niceties -->
+    <script>
+      // Language toggle: Português <-> English (simple translations inline)
+      (function () {
+        const translations = {
+          pt: {
+            langLabel: "Português",
+            heroTitle: "Aprenda inglês com confiança — em qualquer idade",
+            heroSubtitle:
+              "Na English Campos oferecemos aulas personalizadas para crianças, adolescentes, adultos e idosos. Metodologia prática, professores qualificados e flexibilidade de horários.",
+            benefitsTitle: "Benefícios de estudar inglês em todas as idades",
+          },
+          en: {
+            langLabel: "English",
+            heroTitle: "Learn English with confidence — at any age",
+            heroSubtitle:
+              "At English Campos we offer personalized classes for children, teens, adults and seniors. Practical methodology, qualified teachers and flexible schedules.",
+            benefitsTitle: "Benefits of learning English at every age",
+          },
+        };
+
+        let current = "pt";
+        const langToggle = document.getElementById("langToggle");
+        const langLabel = document.getElementById("langLabel");
+        const langIcon = document.getElementById("langIcon");
+        const heroTitle = document.getElementById("heroTitle");
+        const heroSubtitle = document.getElementById("heroSubtitle");
+        const benefitsTitle = document.getElementById("benefitsTitle");
+
+        function applyLang(code) {
+          const t = translations[code];
+          langLabel.textContent = t.langLabel;
+          heroTitle.textContent = t.heroTitle;
+          heroSubtitle.textContent = t.heroSubtitle;
+          benefitsTitle.textContent = t.benefitsTitle;
+          document.documentElement.lang = code === "pt" ? "pt-BR" : "en";
         }
-      };
 
-      let current = 'pt';
-      const langToggle = document.getElementById('langToggle');
-      const langLabel = document.getElementById('langLabel');
-      const langIcon = document.getElementById('langIcon');
-      const heroTitle = document.getElementById('heroTitle');
-      const heroSubtitle = document.getElementById('heroSubtitle');
-      const benefitsTitle = document.getElementById('benefitsTitle');
+        langToggle.addEventListener("click", () => {
+          current = current === "pt" ? "en" : "pt";
+          applyLang(current);
+        });
 
-      function applyLang(code) {
-        const t = translations[code];
-        langLabel.textContent = t.langLabel;
-        heroTitle.textContent = t.heroTitle;
-        heroSubtitle.textContent = t.heroSubtitle;
-        benefitsTitle.textContent = t.benefitsTitle;
-        document.documentElement.lang = code === 'pt' ? 'pt-BR' : 'en';
-      }
-
-      langToggle.addEventListener('click', () => {
-        current = current === 'pt' ? 'en' : 'pt';
+        // init
         applyLang(current);
-      });
 
-      // init
-      applyLang(current);
-
-      // small nicety: update year in footer
-      document.getElementById('year').textContent = new Date().getFullYear();
-    })();
-  </script>
-</body>
+        // small nicety: update year in footer
+        document.getElementById("year").textContent = new Date().getFullYear();
+      })();
+    </script>
+  </body>
 </html>

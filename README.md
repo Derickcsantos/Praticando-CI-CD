@@ -8,22 +8,20 @@ Este projeto é uma **landing page simples** construída com **HTML + TailwindCS
 
 O propósito deste repositório é demonstrar como aplicar boas práticas de **CI/CD** em projetos simples:
 
-* **CI (Integração Contínua):** garante que o código siga padrões e seja formatado automaticamente com **Prettier**.
-* **CD (Entrega Contínua):** realiza o **deploy automático** na Vercel sempre que houver alterações no repositório ou no horário agendado (02:00 AM UTC).
+- **CI (Integração Contínua):** garante que o código siga padrões e seja formatado automaticamente com **Prettier**.
+- **CD (Entrega Contínua):** realiza o **deploy automático** na Vercel sempre que houver alterações no repositório ou no horário agendado (02:00 AM UTC).
 
 ---
 
 ## ⚙️ Como funciona o Workflow
 
 1. **Prettier Auto Format**
-
-   * A cada `push` ou `pull request` na branch `main`, o GitHub Actions roda o Prettier e formata o código.
-   * Caso haja mudanças, o bot do GitHub (`github-actions[bot]`) commita automaticamente as correções.
+   - A cada `push` ou `pull request` na branch `main`, o GitHub Actions roda o Prettier e formata o código.
+   - Caso haja mudanças, o bot do GitHub (`github-actions[bot]`) commita automaticamente as correções.
 
 2. **Deploy Automático**
-
-   * Após o Prettier, o workflow dispara o deploy para a **Vercel**.
-   * O deploy também é agendado para rodar **todos os dias às 02:00 da manhã (UTC)** automaticamente.
+   - Após o Prettier, o workflow dispara o deploy para a **Vercel**.
+   - O deploy também é agendado para rodar **todos os dias às 02:00 da manhã (UTC)** automaticamente.
 
 ---
 
@@ -44,13 +42,13 @@ npm install
 
 ### 3. Configurar a Vercel
 
-* Crie um projeto na [Vercel](https://vercel.com/).
-* Pegue os seguintes dados:
+- Crie um projeto na [Vercel](https://vercel.com/).
+- Pegue os seguintes dados:
+  - `VERCEL_TOKEN`
+  - `VERCEL_ORG_ID`
+  - `VERCEL_PROJECT_ID`
 
-  * `VERCEL_TOKEN`
-  * `VERCEL_ORG_ID`
-  * `VERCEL_PROJECT_ID`
-* No GitHub, vá em **Settings > Secrets and variables > Actions** e adicione cada um como **secret**.
+- No GitHub, vá em **Settings > Secrets and variables > Actions** e adicione cada um como **secret**.
 
 ### 4. Estrutura do Workflow
 
@@ -62,8 +60,8 @@ O workflow fica em:
 
 Ele contém dois jobs:
 
-* `format` → roda Prettier e commita mudanças.
-* `deploy` → dispara o deploy na Vercel.
+- `format` → roda Prettier e commita mudanças.
+- `deploy` → dispara o deploy na Vercel.
 
 ### 5. Rodando localmente (opcional)
 
