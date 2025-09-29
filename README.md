@@ -84,7 +84,7 @@ npx prettier --write .
 
 ## 🚀 Deploy
 
-O deploy é feito automaticamente na Vercel. Após configurar os secrets, basta commitar na branch `main` e aguardar a execução do GitHub Actions.
+O deploy é feito automaticamente na Vercel. Após configurar os secrets, basta commitar na branch `main` e aguardar a execução do GitHub Actions imediatamente.
 
 ---
 
