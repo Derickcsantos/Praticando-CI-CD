@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI + Deploy
 
 # Controls when the workflow will run
@@ -16,49 +14,44 @@ on:
   schedule:
     - cron: "0 2 * * *"
     
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# PERMISSÕES GLOBAIS
+# A chave 'workflows: write' foi removida, pois causava erro de sintaxe.
+# 'contents: write' é suficiente para a Ação de commit funcionar.
+permissions:
+  contents: write 
+
 jobs:
   format:
     name: Prettier Auto Format
     runs-on: ubuntu-latest
-    permissions: 
-      # A indentação foi corrigida: 'contents' e 'workflows' agora estão no mesmo nível
-      contents: write
-      workflows: write 
     steps:
+      # 1. Checkout do código
       - uses: actions/checkout@v4 
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+        # O 'token' não é necessário aqui, pois a Ação de commit o usará.
       
+      # 2. Instalar dependências (sem --save-dev para não alterar package.json)
       - name: Instalar dependências
-        # Usar 'npm install prettier' em vez de '--save-dev' é recomendado
-        # para evitar modificações no package.json no repositório.
         run: npm install prettier
 
+      # 3. Rodar Prettier
       - name: Rodar Prettier
         run: npx prettier --write .
 
-      - name: Commitar mudanças
-        run: |
-          # As configurações de usuário estão corretas
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      # 4. PASSO DE COMMIT AUTOMÁTICO (SOLUÇÃO ROBUSTA)
+      - name: Commitar e fazer push de arquivos formatados
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          # A Ação checa automaticamente se houve mudanças e commita/faz push.
+          commit_message: "chore: auto-format with Prettier"
+          commit_user_name: 'github-actions[bot]'
+          commit_user_email: 'github-actions[bot]@users.noreply.github.com'
+          # Opção para garantir que a branch correta seja usada (main ou PR)
+          branch: ${{ github.head_ref || github.ref_name }}
           
-          # Adicione um cheque para ver se há mudanças antes de commitar
-          # O 'git add .' está adicionando o 'node_modules' e 'package-lock.json' gerados pelo 'npm install', 
-          # o que não é ideal. Se o Prettier formatar apenas arquivos de código-fonte, 
-          # você pode deixar o 'git add .' ou usar 'git add index.html *.css *.js'.
-          git add .
-          
-          # Tenta commitar. O '|| true' é uma alternativa ao '|| echo "Nenhuma mudança..."'
-          git commit -m "chore: auto-format with Prettier" || true 
-          
-          # O push só ocorrerá se o commit anterior for bem-sucedido ou ignorado pelo '|| true'
-          git push
-
   deploy:
     name: Deploy para a vercel
     runs-on: ubuntu-latest
+    # Este job só roda se o 'format' for bem-sucedido (incluindo o push)
     needs: format 
     steps:
       - uses: actions/checkout@v4
