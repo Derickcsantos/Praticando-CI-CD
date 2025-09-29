@@ -18,42 +18,55 @@ on:
     
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-   format:
-      name: Prettier Auto Format
-      runs-on: ubuntu-latest
-      permissions: 
-        contents: write
-      steps:
-         - uses: actions/checkout@v4 
-           with:
-             token: ${{ secrets.GITHUB_TOKEN }}
+  format:
+    name: Prettier Auto Format
+    runs-on: ubuntu-latest
+    permissions: 
+      # A indentação foi corrigida: 'contents' e 'workflows' agora estão no mesmo nível
+      contents: write
+      workflows: write 
+    steps:
+      - uses: actions/checkout@v4 
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       
-         - name: Instalar depenências
-           run: npm install prettier --save-dev
+      - name: Instalar dependências
+        # Usar 'npm install prettier' em vez de '--save-dev' é recomendado
+        # para evitar modificações no package.json no repositório.
+        run: npm install prettier
 
-         - name: Rodar Prettier
-           run: npx prettier --write .
+      - name: Rodar Prettier
+        run: npx prettier --write .
 
-         - name: Commitar mudanças
-           run: |
-             git config --global user.name "github-actions[bot]"
-             git config --global user.email "github-actions[bot]@users.noreply.github.com"
-             git add .
-             git commit -m "chore: auto-format with Prettier" || echo "Nenhuma mudança para commitar"
-             git push
-  # This workflow contains a single job called "build"
-   deploy:
-       name: Deploy para a vercel
-       runs-on: ubuntu-latest
-       needs: format 
-       steps:
-          - uses: actions/checkout@v4
+      - name: Commitar mudanças
+        run: |
+          # As configurações de usuário estão corretas
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Adicione um cheque para ver se há mudanças antes de commitar
+          # O 'git add .' está adicionando o 'node_modules' e 'package-lock.json' gerados pelo 'npm install', 
+          # o que não é ideal. Se o Prettier formatar apenas arquivos de código-fonte, 
+          # você pode deixar o 'git add .' ou usar 'git add index.html *.css *.js'.
+          git add .
+          
+          # Tenta commitar. O '|| true' é uma alternativa ao '|| echo "Nenhuma mudança..."'
+          git commit -m "chore: auto-format with Prettier" || true 
+          
+          # O push só ocorrerá se o commit anterior for bem-sucedido ou ignorado pelo '|| true'
+          git push
 
-          - name: Deploy na vercel
-            uses: amondnet/vercel-action@v20
-            with: 
-              vercel-token: ${{ secrets.VERCEL_TOKEN }}
-              vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-              vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-              working-directory: ./
-    
+  deploy:
+    name: Deploy para a vercel
+    runs-on: ubuntu-latest
+    needs: format 
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy na vercel
+        uses: amondnet/vercel-action@v20
+        with: 
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./
