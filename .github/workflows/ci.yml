@@ -2,21 +2,17 @@ name: CI + Deploy
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
   schedule:
     - cron: "0 2 * * *"
     
 # PERMISSÕES GLOBAIS
-# A chave 'workflows: write' foi removida, pois causava erro de sintaxe.
-# 'contents: write' é suficiente para a Ação de commit funcionar.
 permissions:
   contents: write 
 
@@ -25,40 +21,34 @@ jobs:
     name: Prettier Auto Format
     runs-on: ubuntu-latest
     steps:
-      # 1. Checkout do código
       - uses: actions/checkout@v4 
-        # O 'token' não é necessário aqui, pois a Ação de commit o usará.
       
-      # 2. Instalar dependências (sem --save-dev para não alterar package.json)
       - name: Instalar dependências
         run: npm install prettier
 
-      # 3. Rodar Prettier
       - name: Rodar Prettier
         run: npx prettier --write .
 
-      # 4. PASSO DE COMMIT AUTOMÁTICO (SOLUÇÃO ROBUSTA)
       - name: Commitar e fazer push de arquivos formatados
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          # A Ação checa automaticamente se houve mudanças e commita/faz push.
           commit_message: "chore: auto-format with Prettier"
           commit_user_name: 'github-actions[bot]'
           commit_user_email: 'github-actions[bot]@users.noreply.github.com'
-          # Opção para garantir que a branch correta seja usada (main ou PR)
           branch: ${{ github.head_ref || github.ref_name }}
           
   deploy:
     name: Deploy para a vercel
     runs-on: ubuntu-latest
-    # Este job só roda se o 'format' for bem-sucedido (incluindo o push)
     needs: format 
     steps:
+
       - uses: actions/checkout@v4
 
       - name: Deploy na vercel
         uses: amondnet/vercel-action@v20
         with: 
+          # O erro está nesta linha. O valor lido aqui é nulo ou vazio.
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
