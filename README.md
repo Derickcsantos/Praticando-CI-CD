@@ -73,7 +73,7 @@ npx prettier --write .
 
 ---
 
-## 📖 Benefícios do CI/CD 
+## 📖 Benefícios do CI/CD
 
 ✅ Padronização automática do código com Prettier.
 ✅ Deploy contínuo sem esforço manual.
