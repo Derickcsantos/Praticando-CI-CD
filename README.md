@@ -73,7 +73,7 @@ npx prettier --write .
 
 ---
 
-## 📖 Benefícios do CI/CD
+## 📖 Benefícios do CI/CD 
 
 ✅ Padronização automática do código com Prettier.
 ✅ Deploy contínuo sem esforço manual.
@@ -90,4 +90,4 @@ O deploy é feito automaticamente na Vercel. Após configurar os secrets, basta 
 
 ## 📜 Licença
 
-Este projeto é apenas para fins de estudo/demonstração. Pode ser utilizado e modificado livremente.
+Este projeto é apenas para fins de estudo/demonstração. Pode ser utilizado e modificado livremente!
